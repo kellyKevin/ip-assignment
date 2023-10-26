@@ -1,0 +1,79 @@
+/* Reset some default styles for consistency */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background image to the body */
+body {
+    background-image: url('wVMsPCF.jpg'); /* Adjust the path to your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffffa1;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffffc9;
+    font-weight: bold;
+}
+
+/* Style sections */
+section {
+    padding: 20px;
+    background-color: rgba(25, 159, 171, 0.708);
+    margin: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #141212;
+}
+
+/* Style the footer */
+footer {
+    background-color: rgba(243, 231, 231, 0.703);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Add hover effect to navigation links */
+nav a:hover {
+    text-decoration: underline;
+}
+/* CSS for making the logo smaller */
+.logo {
+    max-width: 100px; /* Adjust the size as needed */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}

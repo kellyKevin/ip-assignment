@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass onion Showcase</title>
+    <link rel="stylesheet" href="Murder Mystery.css">
+</head>
+<body>
+    <header>
+        <h1>Glass onion Showcase</h1>
+        <nav>
+            <div class="nav-logo">
+                <img src="lionn.jpg" alt="Archer Car Dealership" class="logo">
+            </div>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="inventory.html">Inventory</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Spider Man Showcase</h1>
+    <div class="container">
+        <div class="movie">
+            <img src="images/190613124914-murder-mystery-adam-sandler-jennifer-aniston.jpg" alt="Glass onion movie">
+            <h2 class="movie-title">Glass onion movie</h2>
+            <p class="movie-year">Year: 2001</p>
+            <p class="movie-price">$10.00</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+                <br>
+            <div class="star-rating">
+                <span onclick="rateProduct(1, 1)">★</span>
+                <span onclick="rateProduct(1, 2)">★</span>
+                <span onclick="rateProduct(1, 3)">★</span>
+                <span onclick="rateProduct(1, 4)">★</span>
+                <span onclick="rateProduct(1, 5)">★</span>
+            </div>
+            <textarea id="review_1" class="review-textarea" rows="3" cols="30" placeholder="Leave a review"></textarea>
+            <button onclick="submitReview(1)" class="submit-review-button">Submit Review</button>
+        </div>
+        <div class="movie">
+            <img src="images/Facebook-Cover-Facebook-Event-Cover.png" alt="Glass onion movie">
+            <h2 class="movie-title">Glass onion movie</h2>
+            <p class="movie-year">Year: 2004</p>
+            <p class="movie-price">$15.00</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+                <br>
+            <div class="star-rating">
+                <span onclick="rateProduct(2, 1)">★</span>
+                <span onclick="rateProduct(2, 2)">★</span>
+                <span onclick="rateProduct(2, 3)">★</span>
+                <span onclick="rateProduct(2, 4)">★</span>
+                <span onclick="rateProduct(2, 5)">★</span>
+            </div>
+            <textarea id="review_2" class="review-textarea" rows="3" cols="30" placeholder="Leave a review"></textarea>
+            <button onclick="submitReview(2)" class="submit-review-button">Submit Review</button>
+        </div>
+        <div class="movie">
+            <img src="images/0623-MurderMystery619x480.jpg" alt="Glass onion movie">
+            <h2 class="movie-title">Glass onion movie</h2>
+            <p class="movie-year">Year: 2007</p>
+            <p class="movie-price">$20.00</p>
+            <button onclick="addToCart(3)">Add to Cart</button>
+                <br>
+            <div class="star-rating">
+                <span onclick="rateProduct(3, 1)">★</span>
+                <span onclick="rateProduct(3, 2)">★</span>
+                <span onclick="rateProduct(3, 3)">★</span>
+                <span onclick="rateProduct(3, 4)">★</span>
+                <span onclick="rateProduct(3, 5)">★</span>
+            </div>
+            <textarea id="review_3" class="review-textarea" rows="3" cols="30" placeholder="Leave a review"></textarea>
+            <button onclick="submitReview(3)" class="submit-review-button">Submit Review</button>
+        </div>
+        <div class="movie">
+            <img src="images/a.jpg" alt="Glass onion movie">
+            <h2 class="movie-title">Glass onion movie</h2>
+            <p class="movie-year">Year:  2019</p>
+            <p class="movie-price">$20.00</p>
+            <button onclick="addToCart(3)">Add to Cart</button>
+                <br>
+            <div class="star-rating">
+                <span onclick="rateProduct(3, 1)">★</span>
+                <span onclick="rateProduct(3, 2)">★</span>
+                <span onclick="rateProduct(3, 3)">★</span>
+                <span onclick="rateProduct(3, 4)">★</span>
+                <span onclick="rateProduct(3, 5)">★</span>
+            </div>
+            <textarea id="review_3" class="review-textarea" rows="3" cols="30" placeholder="Leave a review"></textarea>
+            <button onclick="submitReview(3)" class="submit-review-button">Submit Review</button>
+        </div>
+    </div>
+    <h2>Shopping Cart</h2>
+    <div id="cart"></div>
+    <h3>Total: $<span id="total">0.00</span></h3>
+
+    <script>
+        const products = [
+            { id: 1, name: "Glass onion movie", price: 10.00, rating: 0, reviews: [] },
+            { id: 2, name: "Glass onion movie", price: 15.00, rating: 0, reviews: [] },
+            { id: 3, name: "Glass onion movie", price: 20.00, rating: 0, reviews: [] },
+            { id: 4, name: "Glass onion movie", price: 15.00, rating: 0, reviews: [] },
+        ];
+
+        const cart = [];
+        const cartContainer = document.getElementById("cart");
+        const totalContainer = document.getElementById("total");
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            cartContainer.innerHTML = "";
+            let totalPrice = 0;
+
+            cart.forEach(item => {
+                const cartItemDiv = document.createElement("div");
+                cartItemDiv.textContent = `${item.name} - $${item.price}`;
+                cartContainer.appendChild(cartItemDiv);
+                totalPrice += item.price;
+            });
+
+            totalContainer.textContent = totalPrice.toFixed(2);
+        }
+
+        function rateProduct(productId, rating) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                product.rating = rating;
+                updateStarRating(productId, rating);
+            }
+        }
+
+        function updateStarRating(productId, rating) {
+            const starRatingContainer = document.querySelector(`.movie:nth-child(${productId}) .star-rating`);
+            const stars = starRatingContainer.querySelectorAll("span");
+            
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.style.color = "gold";
+                } else {
+                    star.style.color = "gray";
+                }
+            });
+        }
+
+        function submitReview(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                const reviewText = document.getElementById(`review_${productId}`).value;
+                product.reviews.push(reviewText);
+                console.log(`Review submitted for ${product.name}: ${reviewText}`);
+            }
+        }
+    </script>
+</body>
+</html>

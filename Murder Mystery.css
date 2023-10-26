@@ -1,0 +1,108 @@
+/* Reset some default styles for consistency */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background image to the body */
+body {
+    background-image: url('wVMsPCF.jpg'); /* Adjust the path to your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #333; /* Default text color */
+}
+
+/* Style the header */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff89;
+    padding: 5px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Style the container for movie showcase */
+.container {
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style individual movie items */
+.movie-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.movie {
+    text-decoration: none;
+    color: #333;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(25, 107, 109, 0.397);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    width: 45%; /* Adjust the width as needed */
+}
+
+.movie:hover {
+    background-color: rgba(10, 215, 226, 0.217);
+}
+
+.movie img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1px;
+}
+
+.movie-title {
+    font-size: 2.4em;
+    font-weight: bold;
+}
+
+.movie-year {
+    font-size: 1em;
+    color: #0a0b0b;
+}
+
+/* Style the footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #130a0a;
+    text-align: center;
+    padding: 10px;
+}
+.logo {
+    max-width: 100px; /* Adjust the size as needed */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}
